@@ -55,7 +55,7 @@ public class AdministratorRepository {
 	 * @param password
 	 * @return
 	 * 
-	 * 管理者情報を取得
+	 * 管理者情報を
 	 */
 	public Administrator findByMailAddressAndPassword(String mailAddress,String password) {
 		String sql = "select id,name,mail_address,password from administrators where mail_address = :mailAddress and password = :password";
