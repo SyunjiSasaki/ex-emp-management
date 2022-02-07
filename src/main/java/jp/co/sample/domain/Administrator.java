@@ -23,7 +23,7 @@ public class Administrator {
 	 */
 	private String password;
 	
-	Administrator(){
+	public Administrator(){
 		
 	}
 
