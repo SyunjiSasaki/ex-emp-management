@@ -70,16 +70,16 @@ public class AdministratorController {
 		}
 		
 		Administrator administrator = new Administrator();
+		
 		BeanUtils.copyProperties(form, administrator);
 		
+		administratorService.insert(administrator);
 		
-		if(form.getMailAddress().equals(administrator.getMailAddress())){
+		if(form.getMailAddress().equals("sasaki.s0824@gmail.com")){
 			model.addAttribute("errorMessage", "メールアドレスが既に登録してあります");
 			return toInsert();
 		} 
-		
-		administratorService.insert(administrator);
-		return "redirect/";
+		return "administrator/login";
 	}
 
 	/**
