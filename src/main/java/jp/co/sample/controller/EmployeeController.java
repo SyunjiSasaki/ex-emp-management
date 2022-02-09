@@ -1,6 +1,5 @@
 package jp.co.sample.controller;
 
-import java.text.DateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
