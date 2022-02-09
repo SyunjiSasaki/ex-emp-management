@@ -1,5 +1,7 @@
 package jp.co.sample.controller;
 
+
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.BeanUtils;
@@ -57,11 +59,11 @@ public class AdministratorController {
 	/**
 	 * 管理者情報を登録します.
 	 * 
-	 * @param form 管理者情報用フォーム
+	 * @param 管理者情報用フォーム
 	 * @return ログイン画面へリダイレクト
 	 */
 	@RequestMapping("/insert")
-	public String insert(@Validated InsertAddministratorForm form,BindingResult result) {
+	public String insert(@Validated InsertAddministratorForm form,BindingResult result, Model model) {
 		
 		if(result.hasErrors()) {
 			return "administrator/insert";
@@ -69,6 +71,13 @@ public class AdministratorController {
 		
 		Administrator administrator = new Administrator();
 		BeanUtils.copyProperties(form, administrator);
+		
+		
+		if(form.getMailAddress().equals(administrator.getMailAddress())){
+			model.addAttribute("errorMessage", "メールアドレスが既に登録してあります");
+			return toInsert();
+		} 
+		
 		administratorService.insert(administrator);
 		return "redirect/";
 	}
@@ -86,9 +95,6 @@ public class AdministratorController {
 	/**
 	 * ログインします.
 	 * 
-	 * @param form   管理者情報用フォーム
-	 * @param result エラー情報格納用オブジェクト
-	 * @return ログイン後の従業員一覧画面
 	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {

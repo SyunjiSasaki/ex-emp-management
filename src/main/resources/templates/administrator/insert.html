@@ -17,8 +17,10 @@
 <body>
 	<div class="container">
 		<!-- 上余白 -->
-		<div th:insert="/admistrator/common::frag_header" class="row">
-			
+		<div class="row">
+			<div class="col-lg-offset-0 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+				<img src="../../static/img/header_logo.png" th:src="@{/img/header_logo.png}">
+			</div>
 		</div>
 		<!-- login form -->
 		<div  class="row">
@@ -34,8 +36,14 @@
 						th:object="${insertAddministratorForm}">
 						<fieldset>
 							<legend>管理者登録<br>(システムにログインできる管理者を登録します)</legend>
+							<div class="form-group">
+								<div class="alert alert-danger" th:if="${errorMessage}">
+									<p th:text="${errorMessage}">メールアドレスが既に登録してあります</p>
+								</div>
+							</div>
 							<!-- 氏名 -->
 							<div class="form-group">
+								
 								<div class="row">
 									<div class="col-sm-12">
 										<label for="name">
