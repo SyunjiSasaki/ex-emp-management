@@ -70,7 +70,7 @@ public class AdministratorController {
 		BeanUtils.copyProperties(form, administrator);
 
 		if (administratorService.error(form.getMailAddress()) != null) {
-			model.addAttribute("errorMessage", "メールアドレスが既に登録してあります");
+			model.addAttribute("errorMessage", "登録済みのメールアドレスです");
 			return toInsert();
 		}
 
