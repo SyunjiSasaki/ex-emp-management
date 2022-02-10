@@ -17,13 +17,11 @@
 <body>
 	<div class="container">
 		<!-- 上余白 -->
-		<div class="row">
-			<div class="col-lg-offset-0 col-lg-6 col-md-8 col-sm-10 col-xs-12">
-				<img src="../../static/img/header_logo.png" th:src="@{/img/header_logo.png}">
-			</div>
+		<div th:insert="/administrator/common::frag_header" class="row">
+
 		</div>
 		<!-- login form -->
-		<div  class="row">
+		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-10 col-xs-12">
 				<!-- 背景をグレーに、埋め込んだようなコンポーネント -->
 				<div class="well">
@@ -43,13 +41,14 @@
 							</div>
 							<!-- 氏名 -->
 							<div class="form-group">
-								
+
 								<div class="row">
 									<div class="col-sm-12">
 										<label for="name">
 											氏名:
 										</label>
-										<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red;">
+										<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+											style="color: red;">
 											氏名を入力してください
 										</label>
 										<input type="text" name="name" id="name" class="form-control" placeholder="山田太郎"
@@ -64,7 +63,8 @@
 										<label for="mailAddress">
 											メールアドレス:
 										</label>
-										<label th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}" style="color: red;">
+										<label th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}"
+											style="color: red;">
 											メールアドレスを入力してください
 										</label>
 										<input type="text" name="mailAddress" id="mailAddress" class="form-control"
@@ -79,8 +79,8 @@
 										<label for="password">
 											パスワード:
 										</label>
-										<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"
-											>
+										<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+											style="color: red;">
 											パスワードを入力してください
 										</label>
 										<input type="password" name="password" id="password" class="form-control"

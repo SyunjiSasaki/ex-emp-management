@@ -12,32 +12,32 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/paginathing.min.js"></script>
-    <script>
-    $(function() {
-  var page = 0;
-  function draw() {
-    $('#page').html(page + 1);
-    $('tr').hide();
-    $('tr:first,tr:gt(' + page * 10 + '):lt(10)').show();
-  }
-  $('#prev').click(function() {
-    if (page > 0) {
-      page--;
-      draw();
-    }
-  });
-  $('#next').click(function() {
-    if (page < ($('tr').size() - 1) / 10 - 1) {
-      page++;
-      draw();
-    }
-  });
-  draw();
-});
-</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/paginathing.min.js"></script>
+	<script>
+		$(function () {
+			var page = 0;
+			function draw() {
+				$('#page').html(page + 1);
+				$('tr').hide();
+				$('tr:first,tr:gt(' + page * 10 + '):lt(10)').show();
+			}
+			$('#prev').click(function () {
+				if (page > 0) {
+					page--;
+					draw();
+				}
+			});
+			$('#next').click(function () {
+				if (page < ($('tr').size() - 1) / 10 - 1) {
+					page++;
+					draw();
+				}
+			});
+			draw();
+		});
+	</script>
 
 
 </head>
@@ -45,27 +45,8 @@
 <body>
 
 	<div class="container">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div  th:insert="/employee/common::frag_header" class="navbar-header">
-				
-				</div>
+		<nav th:insert="/employee/common::frag_header" class="navbar navbar-default">
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="list.html">従業員管理</a></li>
-					</ul>
-					<p class="navbar-text navbar-right">
-						<span th:text="${session.administratorName + 'さん'}">山田さん</span>こんにちは！
-						&nbsp;&nbsp;&nbsp;
-						<a href="../administrator/login.html" class="navbar-link" th:href="@{/logout}">ログアウト</a>
-					</p>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
 		</nav>
 
 		<!-- パンくずリスト -->
@@ -108,19 +89,19 @@
 					</tbody>
 				</table>
 
-	
+
 				<!-- ここから下を編集する必要はありません -->
 
 			</div>
 		</div>
 	</div>
 	<div class="page">
-	<span id="prev">＜prev＞</span>　<span id="page"></span>　<span id="next">＜next＞</span>
+		<span id="prev">＜prev＞</span>　<span id="page"></span>　<span id="next">＜next＞</span>
 	</div>
 	<!-- end container -->
 
 
-	
+
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
