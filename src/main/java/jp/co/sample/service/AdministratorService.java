@@ -18,6 +18,17 @@ public class AdministratorService {
 	@Autowired
 	private AdministratorRepository administratorRepository;
 
+	
+	
+	/**
+	 * エラーメッセージ（メールアドレス重複）
+	 */
+	
+	public Administrator error(String mailAddress) {
+		Administrator administrator1 = administratorRepository.countMailAddress(mailAddress);
+		return administrator1;
+	}
+	
 	/**
 	 * 管理者情報登録
 	 * 

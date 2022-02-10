@@ -31,6 +31,7 @@ public class AdministratorRepository {
 		administrator.setPassword(rs.getString("password"));
 		return administrator;
 	};
+	
 
 	@Autowired
 	private NamedParameterJdbcTemplate template;
@@ -58,9 +59,23 @@ public class AdministratorRepository {
 		}
 		return administratorList.get(0);
 	}
+	
+	/**
+	 * エラーメッセージ
+	 * 既に登録済みかどうかをチェック
+	 */
+	public Administrator countMailAddress(String mailAddress) {
+		String sql = "select id,name,mail_address,password from administrators where mail_address = :mailAddress";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("mailAddress", mailAddress);
+		List<Administrator> administratorList =  template.query(sql, param,ADMINISTRATOR_ROW_MAPPER);
+		if (administratorList.size() == 0) {
+			return null;
+		}
+		return administratorList.get(0);
+	}
 
 	/**
-	 * 管理者情報
+	 * 管理者情報を登録
 	 */
 	public void insert(Administrator administrator) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
