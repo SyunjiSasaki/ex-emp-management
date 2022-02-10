@@ -18,7 +18,7 @@ public class InsertAddministratorForm {
 	/**
 	 * mail
 	 */
-	@Size(min=1,max=100,message="メールアドレスは1文字以上150文字以内で入力してください")
+	@Size(min = 1, max = 100, message = "メールアドレスは1文字以上150文字以内で入力してください")
 	private String mailAddress;
 	
 	/**

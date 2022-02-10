@@ -2,6 +2,7 @@ package jp.co.sample.form;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * 
@@ -20,31 +21,31 @@ public class UpdateEmployeeForm {
 	@Pattern(regexp = "^[0-9]+$", message = "数値で入力してください")
 	private String dependentsCount;
 
-	@NotBlank(message = "必須項目")
+	@NotBlank(message = "名前は必須項目です")
 	private String name;
 
-	@NotBlank(message = "必須項目")
+	@Size(min = 1, max = 100, message = "メールアドレスは1文字以上150文字以内で入力してください")
 	private String mailAddress;
 
-	@NotBlank(message = "必須項目")
+	@NotBlank(message = "郵便番号は必須項目です")
 	private String zipCode;
 
-	@NotBlank(message = "必須項目")
+	@NotBlank(message = "住所は必須項目です")
 	private String address;
 
-	@NotBlank(message = "必須項目")
+	@NotBlank(message = "電話番号は必須項目です")
 	private String telephone;
 
-	@NotBlank(message = "必須項目")
+	@NotBlank(message = "性別は必須項目です")
 	private String gender;
 
-	@NotBlank(message = "必須項目")
+	@NotBlank(message = "入社日は必須項目です")
 	private String hireDate;
 
-	@NotBlank(message = "必須項目")
+	@Pattern(regexp = "^[0-9]+$", message = "数値で入力してください")
 	private String salary;
 
-	@NotBlank(message = "必須項目")
+	@NotBlank(message = "特徴は必須項目です")
 	private String characteristics;
 
 	public String getGender() {
